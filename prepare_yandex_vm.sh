@@ -23,7 +23,7 @@ ssh -o StrictHostKeyChecking=no yc-user@$HOST_ADCM sudo docker create --name adc
 ssh -o StrictHostKeyChecking=no yc-user@$HOST_ADCM sudo docker start adcm
 
 echo "===Created machines=="
-yc compute instance list | grep $NAME  awk '{print $4, $11}' | sort
+yc compute instance list | grep $NAME |  awk '{print $4, $11}' | sort
 echo "\n===PK for host add to adcm==="
 cat ~/.ssh/id_rsa
 firefox "$HOST_ADCM:8000"
