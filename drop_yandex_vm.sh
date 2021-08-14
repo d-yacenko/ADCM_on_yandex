@@ -1,5 +1,5 @@
 #!/bin/bash
-NAME="test-adcm-edu-ydv-vm"
+NAME="ydv-vm"
 yc compute instance list | grep $NAME
 read -p "Delete all computers? " -n 1 -r
 echo    # (optional) move to a new line

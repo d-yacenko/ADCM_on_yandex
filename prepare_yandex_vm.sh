@@ -1,5 +1,5 @@
 #!/bin/bash
-NAME="test-adcm-edu-ydv-vm"
+NAME="ydv-vm"
 HOSTS=`yc compute instance list | grep $NAME | awk '{ print $11}'`
 for H in $HOSTS
 do
@@ -11,7 +11,7 @@ do
 	sed -i /$H/d ~/.ssh/known_hosts
 done
 
-HOST_ADCM=`yc compute instance list | grep test-adcm-edu-ydv-vm1 | awk '{ print $11}'`
+HOST_ADCM=`yc compute instance list | grep ydv-vm1 | awk '{ print $11}'`
 ssh -o StrictHostKeyChecking=no yc-user@$HOST_ADCM sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ssh -o StrictHostKeyChecking=no yc-user@$HOST_ADCM sudo yum install -y yum-utils docker device-mapper-persistent-data lvm2
 ssh -o StrictHostKeyChecking=no yc-user@$HOST_ADCM sudo systemctl start docker
